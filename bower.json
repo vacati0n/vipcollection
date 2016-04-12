@@ -7,5 +7,12 @@
   ],
   "license": "MIT",
   "homepage": "",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "toastr": "^2.1.2",
+    "jquery": "^2.2.3",
+    "angular": "^1.5.3",
+    "angular-resource": "^1.5.3",
+    "angular-route": "^1.5.3"
+  }
 }

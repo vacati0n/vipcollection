@@ -1,4 +1,7 @@
 var express  = require('express');
+
+var env=process.env.NODE_ENV=   process.env.NODE_ENV|| 'development';
+
     var app      = express();                               // create our app w/ express
     var mongoose = require('mongoose');                     // mongoose for mongodb
     var morgan = require('morgan');             // log requests to the console (express4)
@@ -6,9 +9,10 @@ var express  = require('express');
     var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 
     // configuration =================
-
+    app.get('*', function(req, res) {
+        res.sendfile('./public/views/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    });
     mongoose.connect('mongodb://node:nodeuser@mongo.onmodulus.net:27017/uwO3mypu');     // connect to mongoDB database on modulus.io
-
     app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
     app.use(morgan('dev'));                                         // log every request to the console
     app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
@@ -17,5 +21,5 @@ var express  = require('express');
     app.use(methodOverride());
 
     // listen (start app with node server.js) ======================================
-    app.listen(8080);
-    console.log("App listening on port 8080");
+    app.listen(3000);
+    console.log("App listening on port 3000");
