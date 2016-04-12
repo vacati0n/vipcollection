@@ -1,0 +1,11 @@
+{
+  "name": "vip-collection",
+  "description": "software application.",
+  "main": "server.js",
+  "authors": [
+    "Hoang Vu"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true
+}
